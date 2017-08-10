@@ -27,9 +27,10 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    this.listenForHighlights(this.highlightsRef);
+    this.listenForHighlights(this.highlightsRef.child("highlights"));
   }
 
+  // TODO: We are allowing anyone (publicly) to read/write to DB. Fix auth
   listenForHighlights(highlightsRef) {
     highlightsRef.on('value', (snap) => {
 
