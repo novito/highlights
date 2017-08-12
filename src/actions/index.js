@@ -5,9 +5,10 @@ const addHighlightAction = (highlight) => ({
   ...highlight
 });
 
-export function addHighlight(text) {
+export function addHighlight(highlightData) {
   let highlight = {
-    text: text,
+    text: highlightData.text,
+    timestamp: highlightData.date.getTime(),
   };
 
   return function (dispatch) {
@@ -16,6 +17,7 @@ export function addHighlight(text) {
       .push();
 
     highlight.id = newHighlightRef.key;
+    highlight.test = "TESTOUNTUNE";
     newHighlightRef.set(highlight);
 
     dispatch(addHighlightAction(highlight));

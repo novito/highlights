@@ -4,8 +4,8 @@ import { addHighlight } from '../src/actions/index';
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addHighlight: (text) => {
-      dispatch(addHighlight(text));
+    addHighlight: (text, date) => {
+      dispatch(addHighlight(text, date));
     }
   };
 };
