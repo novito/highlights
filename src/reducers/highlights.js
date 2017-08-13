@@ -7,10 +7,12 @@ const highlights = (state = initialState, action) => {
     case 'ADD_HIGHLIGHT':
       return state;
     case 'RECEIVED_HIGHLIGHTS': {
-      return {
+      let toReturn = {
         ...state,
         highlightsList: action.highlights
       }
+
+      return toReturn;
     }
     default:
       return state;

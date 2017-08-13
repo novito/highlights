@@ -7,8 +7,7 @@ export default class HighlightsList extends React.Component {
   }
 
   render() {
-    console.log("HIGHLIGHTS LIST");
-    console.log(this.props.highlightsList);
+    // TODO Iterate over this.props.highlights
     return (
       <View>
         <Text> TEST </Text>

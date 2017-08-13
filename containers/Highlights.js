@@ -12,10 +12,11 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    highlights: state.highlightsList
+    // Figure out why we need to do highlights.highlighstList
+    highlights: state.highlights.highlightsList
   };
 }
 
-let Highlights = connect(null, mapDispatchToProps)(HighlightsList);
+let Highlights = connect(mapStateToProps, mapDispatchToProps)(HighlightsList);
 
 export default Highlights;
