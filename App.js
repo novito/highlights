@@ -1,14 +1,18 @@
 import React from 'react';
-import { ListView } from 'react-native';
+import { ListView, View } from 'react-native';
 import { Provider } from 'react-redux';
 import AddHighlight from './containers/AddHighlight';
+import Highlights from './containers/Highlights';
 import store from './store';
 
 export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <AddHighlight />
+        <View>
+          <AddHighlight />
+          <Highlights />
+        </View>
       </Provider>
     );
   }
