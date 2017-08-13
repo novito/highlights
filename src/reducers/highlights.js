@@ -1,19 +1,16 @@
 const initialState = {
-  highlightsList: [],
-  newHighlight: null
+  list: {},
+  new: null
 }
 const highlights = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_HIGHLIGHT':
       return state;
-    case 'RECEIVED_HIGHLIGHTS': {
-      let toReturn = {
+    case 'RECEIVED_HIGHLIGHTS':
+      return {
         ...state,
-        highlightsList: action.highlights
+        list: action.highlights
       }
-
-      return toReturn;
-    }
     default:
       return state;
   }

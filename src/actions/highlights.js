@@ -7,7 +7,7 @@ const addHighlightAction = (highlight) => ({
 
 const highlightsReceived = (highlights) => ({
   type: 'RECEIVED_HIGHLIGHTS',
-  highlights
+  highlights: highlights
 });
 
 export function addHighlight(highlightData) {
@@ -33,6 +33,8 @@ export function getHighlights() {
     firebase.database()
       .ref('highlights')
       .on('value', (highlights) => {
+        console.log("HIGHLIGHTS");
+        console.log(highlights);
         dispatch(highlightsReceived(highlights));
       });
   }

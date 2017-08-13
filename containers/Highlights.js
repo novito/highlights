@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getHighlights } from '../src/actions/index';
+import { getHighlights } from '../src/actions/highlights';
 import HighlightsList from '../components/HighlightsList';
 
 const mapDispatchToProps = (dispatch) => {
@@ -12,8 +12,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    // Figure out why we need to do highlights.highlighstList
-    highlights: state.highlights.highlightsList
+    highlights: state.highlights.list
   };
 }
 

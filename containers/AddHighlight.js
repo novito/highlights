@@ -1,6 +1,6 @@
 import AddHighlightForm from '../components/AddHighlightForm';
 import { connect } from 'react-redux';
-import { addHighlight } from '../src/actions/index';
+import { addHighlight } from '../src/actions/highlights';
 
 const mapDispatchToProps = (dispatch) => {
   return {
