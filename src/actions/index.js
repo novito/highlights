@@ -5,9 +5,9 @@ const addHighlightAction = (highlight) => ({
   ...highlight
 });
 
-const highlightReceived = (highlight) => ({
-    type: 'RECEIVED_HIGHLIGHT',
-    ...highlight
+const highlightsReceived = (highlights) => ({
+  type: 'RECEIVED_HIGHLIGHTS',
+  highlights
 });
 
 export function addHighlight(highlightData) {
@@ -22,19 +22,10 @@ export function addHighlight(highlightData) {
       .push();
 
     highlight.id = newHighlightRef.key;
-    highlight.test = "TESTOUNTUNE";
     newHighlightRef.set(highlight);
 
     dispatch(addHighlightAction(highlight));
   };
-}
-
-function receiveHighlights(highlights) {
-  return function (dispatch) {
-    Object.values(highlights).forEach(function(highlight) {
-      dispatch(highlightReceived(highlight));
-    });
-  }
 }
 
 export function getHighlights() {
@@ -42,9 +33,7 @@ export function getHighlights() {
     firebase.database()
       .ref('highlights')
       .on('value', (highlights) => {
-        console.log("HIGHLIGHTS");
-        console.log(highlights);
+        dispatch(highlightsReceived(highlights));
       });
-    // TODO: Dispatch action saying that we have started to fetch
   }
 }
