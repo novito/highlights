@@ -33,8 +33,6 @@ export function getHighlights() {
     firebase.database()
       .ref('highlights')
       .on('value', (highlights) => {
-        console.log("HIGHLIGHTS");
-        console.log(highlights);
         dispatch(highlightsReceived(highlights));
       });
   }
